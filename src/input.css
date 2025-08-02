@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+  /* Your custom theme override */
+}
+
+.hidden {
+    display: none;
+}

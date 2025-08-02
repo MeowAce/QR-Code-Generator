@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR-Code Generator</title>
+
+    <!-- TailwindCSS -->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="w-full max-w-md p-6 text-center bg-white shadow-lg rounded-xl">
+        <h1 class="mb-4 text-2xl font-bold">QR Code Generator</h1>
+        <input type="text" id="text-input" placeholder="Masukkan teks atau URL" class="w-full p-2 mb-4 border rounded">
+        <div class="flex justify-center space-x-2">
+            <button onclick="generateQR()" class="px-4 py-2 text-white transition bg-blue-600 rounded hover:bg-blue-700">Generate QR</button>
+            <button onclick="clearInput()" class="px-4 py-2 text-white transition bg-gray-500 rounded hover:bg-gray-600">Bersihkan</button>
+        </div>
+        <div id="download-container" class="hidden mt-4 space-y-2">
+            <div class="flex items-center justify-center space-x-2">
+                <label for="format-select" class="font-medium">Format:</label>
+                <select id="format-select" class="p-2 border rounded">
+                    <option value="png">PNG</option>
+                    <option value="jpeg">JPG</option>
+                </select>
+                <button onclick="copyToClipboard()" id="copy-btn" class="px-4 py-2 text-white transition bg-purple-600 rounded hover:bg-purple-700">Salin Teks</button>
+            </div>
+            <button onclick="downloadQR()" id="download-btn" class="w-full px-4 py-2 text-white transition bg-green-600 rounded hover:bg-green-700">Unduh QR Code</button>
+        </div>
+        <div class="mt-6" id="qr-container">
+            <canvas id="qr-canvas" class="mx-auto"></canvas>
+            <p id="qr-message" class="mt-2 text-red-500"></p>
+        </div>
+    </div>
+
+    <!-- QRCode.js -->
+    <script src="qrcode.min.js"></script>
+    <!-- Script -->
+     <script src="script.js"></script>
+</body>
+</html>
